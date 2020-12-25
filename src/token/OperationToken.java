@@ -20,19 +20,25 @@ public class OperationToken implements Token {
     }
 
     public enum Operation {
-        PLUS("PLUS"),
-        MINUS("MINUS"),
-        MULTIPLICATION("MULTIPLICATION"),
-        DIVISION("DIVISION");
+        PLUS("PLUS", 2),
+        MINUS("MINUS", 2),
+        MULTIPLICATION("MULTIPLICATION", 1),
+        DIVISION("DIVISION", 1);
 
         private final String name;
+        private final int priority;
 
-        Operation(String name) {
+        Operation(String name, int priority) {
             this.name = name;
+            this.priority = priority;
         }
 
         public String getName() {
             return name;
+        }
+
+        public int getPriority() {
+            return priority;
         }
     }
 }
